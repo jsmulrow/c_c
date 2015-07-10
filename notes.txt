@@ -1,0 +1,24 @@
+things it should do 
+
+home
+	portals to clients and cleaners
+
+clients
+	form to post requests for cleanings
+	info:
+		residential college, suite, #people, level of dirtiness, payment amount, preferred cleaning times
+
+	take email to notifty them of acceptance?
+
+
+cleaners
+	can browse requests for cleaning
+	can accept requests
+		put in contact with client
+		given email?? interior chat app? idk
+
+
+		use venmo for payments? take some off the top?
+
+
+sign in?

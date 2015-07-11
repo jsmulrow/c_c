@@ -26,7 +26,14 @@ var userSchema = new Schema({
 	name: String,
 	email: String,
 	college: String,
+	username: String,
+	password: String
 });
+
+// for password auth
+userSchema.methods.validPassword = function(password) {
+	return this.password === password;
+};
 
 module.exports = {
 	User: mongoose.model('User', userSchema),

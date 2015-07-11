@@ -1,0 +1,15 @@
+<div class="col-sm-8 col-xs-12" >
+	<h2>Please sign in first:</h2>
+	<form role="form">
+		<div class="form-group col-sm-6">
+			<label>What is your username?</label>
+			<input class="form-control" ng-model="user.username" type="text" placeholder="Your name">
+		</div>
+		<div class="form-group col-sm-6">
+			<label>What is your password?</label>
+			<input class="form-control" ng-model="user.password" type="password" placeholder="Your password">
+		</div>
+		<button class="btn btn-primary" ng-click="signIn(user)">Submit</button>
+	</form>
+	<h2 ng-show="failedSignIn">Could not find that username</h2>
+</div>

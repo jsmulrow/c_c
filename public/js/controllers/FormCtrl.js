@@ -1,11 +1,11 @@
-app.controller('FormCtrl', function($scope, FormSubmitFactory) {
+app.controller('FormCtrl', function($scope, FormFactory) {
 	$scope.dirtyRange = [1,2,3,4,5,6,7,8,9,10];
 
 	$scope.request = {};
 
 	$scope.addRequest = function(request) {
 		console.log(request);
-		FormSubmitFactory.createRequest(request)
+		FormFactory.createRequest(request)
 			.then(function(data) {
 				console.log('res', data);
 			});

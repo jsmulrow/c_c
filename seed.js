@@ -11,9 +11,9 @@ var Place = models.Place;
  
 var data = {
     User: [
-        {name: 'Jack Mulrow', email: 'jack.mulrow@yale.edu', college: 'Davenport'},
-        {name: 'Eric Ho', email: 'eric.ho@yale.edu', college: 'Davenport'},
-        {name: 'Brandon Morgan', email: 'brandon.morgan@yale.edu', college: 'Davenport'}
+        {name: 'Jack Mulrow', email: 'jack.mulrow@yale.edu', college: 'Davenport', username: 'jsmulrow', password: 'jack'},
+        {name: 'Eric Ho', email: 'eric.ho@yale.edu', college: 'Davenport', username: 'eho', password: 'eric'},
+        {name: 'Brandon Morgan', email: 'brandon.morgan@yale.edu', college: 'Davenport', username: 'bmo', password: 'brandon'}
     ],
     Request: [
         // jack is the author

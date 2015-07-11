@@ -20,7 +20,16 @@ router.get('/users', function(req, res, next) {
 
 // return one user - only searches by email
 router.get('/user', function(req, res, next) {
-	models.User.findOne({email: req.query.email}).exec()
+	// supports queries by email or username, or both
+	var query = {};
+	if (req.query.email) {
+		query.email = req.query.email;
+	}
+	if (req.query.username) {
+		query.username = req.query.username;
+	}
+
+	models.User.findOne(query).exec()
 		.then(function(user) {
 			if (user) {
 				res.json(user);

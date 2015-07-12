@@ -18,6 +18,12 @@ app.factory('FormFactory', function($http) {
 				.then(function(res) {
 					return res.data;
 				});
+		},
+		register: function(config) {
+			return $http.post('/register', config)
+				.then(function(res) {
+					return res.data;
+				});
 		}
 	};
 });

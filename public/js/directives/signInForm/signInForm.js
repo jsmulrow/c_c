@@ -5,26 +5,44 @@ app.directive('signInForm', function(SignInFactory, FormFactory) {
 		link: function(scope, element, attrs) {
 			// update the sign in factory
 
+				scope.startRegister = function() {
+					scope.register = true;
+				};
+
+				scope.registerUser = function(user) {
+					console.log(user);
+					FormFactory.register(user)
+						.then(function(newUser) {
+							console.log(newUser);
+							SignInFactory.signedIn = true;
+							SignInFactory.user = newUser;
+						});
+				};
+
 				scope.failedSignIn = false;
+				scope.badUser = false;
+				scope.badPswd = false;
 
 				scope.signIn = function(user) {
 					console.log(user);
 					// make ajax post request to login
 					FormFactory.signIn(user)
-						.then(function(status) {
-							console.log(status);
-							if (status === 'success') {
+						.then(function(res) {
+							if (typeof res === 'object') {
+								console.log('ye', res);
 								scope.failedSignIn = false;
+								scope.badUser = false;
+								scope.badPswd = false;
 								SignInFactory.signedIn = true;
-								// SignInFactory.user = user;
-								// set the user
-								FormFactory.getUser(user)
-									.then(function(resUser) {
-										SignInFactory.user = resUser;
-										console.log('res user', resUser);
-									});
-							} else {
+								SignInFactory.user = res;
+							} else if (res === 'no user') {
 								scope.failedSignIn = true;
+								scope.badUser = true;
+								scope.badPswd = false;
+							} else if (res === 'bad pswd'){
+								scope.failedSignIn = true;
+								scope.badUser = false;
+								scope.badPswd = true;
 							}
 						});
 				};

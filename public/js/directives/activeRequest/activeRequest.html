@@ -1,12 +1,29 @@
 <div>
 	<h2>Selected Request</h2>
 	<h3>Title: {{request.title}}</h3>
-	<p>Author: {{request.author}}</p>
-	<p>Dirtiness: {{request.dirtiness}}</p>
-	<p>Payment: {{request.payment}}</p>
-	<!-- make custom directive, and use a filter to go through the array -->
-	<p>Available Times: {{request.times}}</p>
-	<p>Where: {{request.college}}, {{request.suite}}</p>
-
-
+	<hr/>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">Author:</div>
+			  <div class="panel-body">
+			    <p>Name: {{request.author.name}}</p>
+			    <p>Email: {{request.author.email}}</p>
+			    <p>Username: {{request.author.username}}</p>
+			  </div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">Request Info:</div>
+			  <div class="panel-body">
+			    <p>Dirtiness: {{request.dirtiness}}</p>
+			    <p>Payment: {{request.payment}}</p>
+			<!-- make custom directive, and use a filter to go through the array -->
+			    <p>Available Times: {{request.times}}</p>
+			    <p>Where: {{request.college}}, {{request.suite}}</p>
+			  </div>
+			</div>
+		</div>
+	</div>
 </div>

@@ -37,15 +37,29 @@ module.exports = function(app) {
   });
 
   app.post('/login',
-    passport.authenticate('local', {
-      successRedirect: '/successLogin',
-      failureRedirect: '/failLogin',
-      failureFlash: false
-    })
+    // passport.authenticate('local', {
+    //   successRedirect: '/successLogin',
+    //   failureRedirect: '/failLogin',
+    //   failureFlash: false
+    // })
+    function(req, res, next) {
+      User.findOne({username: req.body.username}).exec()
+        .then(function(user) {
+          if (!user) res.send('no user');
+          if (!user.validPassword(req.body.password)) res.send('bad pswd');
+          res.json(user);
+        });
+    }
   );
 
+  app.post('/register', function(req, res, next) {
+    var newUser = new User(req.body);
+    newUser.save(function(err, data) {
+      res.json(data);
+    });
+  });
+
   app.get('/successLogin', function(req, res, next) {
-    User.findOne({})
     res.json('success');
   });
 

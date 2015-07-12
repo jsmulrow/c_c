@@ -44,7 +44,7 @@ router.get('/user', function(req, res, next) {
 
 // return all requests
 router.get('/requests', function(req, res, next) {
-	models.Request.find({}).exec()
+	models.Request.find({}).populate('author').exec()
 	.then(function(requests) {
 		res.json(requests);
 	})

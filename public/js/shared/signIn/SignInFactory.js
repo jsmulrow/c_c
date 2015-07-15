@@ -11,7 +11,7 @@ app.factory('SignInFactory', function($state, UserFactory) {
 				};
 				this.signedIn = true;
 				var self = this;
-				UserFactory.getUser({name: 'Jack Mulrow0'})
+				UserFactory.getUser({name: 'Jack Mulrow'})
 					.then(function(user) {
 						self.user = user;
 						console.log(user);

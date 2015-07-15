@@ -14,7 +14,11 @@ var Request = models.Request;
 mongoose.connection.on('open', function() {
     mongoose.connection.db.dropDatabase(function() {
         console.log("Dropped old data, now inserting data");
-        insertData(0, 2);
+        var jack = new User({name: 'Jack Mulrow', email: 'jack.mulrow@yale.edu', college: 'Davenport', username: 'jsmulrow', password: 'jack'});
+        jack.save(function(e, user) {
+            console.log('saved default jack');
+            insertData(0, 2);
+        });
     });
 });
 

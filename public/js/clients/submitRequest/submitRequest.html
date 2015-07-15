@@ -1,0 +1,43 @@
+<div class="main-content">
+	<form role="form" ng-submit="addRequest(request)">
+		<div class="form-group">
+			<label for="page_title">Request Title</label>
+			<input name="page_title" type="text" class="form-control" ng-model="request.title" placeholder="Summarize the request">
+		</div>
+		<div class="row">
+			<div class="col-sm-3 col-xs-6 form-group">
+				<label for="page_title">College</label>
+				<input name="page_title" type="text" class="form-control" ng-model="request.college" placeholder="DC" required>
+			</div>
+			<div class="col-sm-3 col-xs-6 form-group">
+				<label for="page_title">Suite</label>
+				<input name="page_title" type="text" class="form-control" ng-model="request.suite" placeholder="H22" required>
+			</div>
+			<div class="col-sm-2 col-xs-4 form-group">
+				<label ng-click="debug()" for="page_title">Dirtiness</label>
+				<select class="form-control" required>
+				  <option ng-repeat="level in dirtyRange">{{level}}</option>
+				</select>
+			</div>
+			<div class="col-sm-4 col-xs-8 form-group">
+				<label for="page_title">Payment</label>
+			    <div class="input-group">
+			      <div class="input-group-addon">$</div>
+			      <input type="text" class="form-control" ng-model="request.payment" placeholder="Amount" id="paymentInput" required>
+			    </div>
+			</div>
+		</div>
+		<div class="row">
+			
+		</div>
+		<div class="form-group">
+			<label for="page_title">Available Times</label>
+			<input name="page_title" type="text" class="form-control" ng-model="request.times">
+		</div>
+		<div class="form-group">
+			<label for="body_content">Additional Comments</label>
+			<textarea name="page_content" rows="5" class="form-control"></textarea>
+		</div>
+		<button class="btn btn-primary">Submit</button>
+	</form>
+</div>

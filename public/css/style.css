@@ -1,5 +1,6 @@
 body {
   padding: 20px;
+  padding-top: 60px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -8,10 +9,8 @@ a {
   text-decoration: none;
 }
 
-.service-choice {
-	/*margin-left: 40px;*/
-	/*margin-right: 40px;*/
-	padding-bottom: 50px;
+.main-content {
+	padding-bottom: 25px;
 }
 
 .panel * {
@@ -22,8 +21,20 @@ a {
 	text-align: center;
 }
 
-.copyright {
+/* for the collapsing navbar */
+@media (max-width: 768px) {
+	.navbar-collapse{
+		clear: both;
+	}
+}
 
+
+.navbar .navbar-header {
+	float: left;
+}
+
+#paymentInput {
+	float: none;
 }
 
 .page-heading {
@@ -35,4 +46,14 @@ a {
 .right {
 	float: right;
 	margin-right: 15px;
+}
+
+.sidebar {
+	overflow-y: scroll;
+	/*kinda hacky but it works*/
+	height: calc(100vh - 150px);
+}
+
+.button {
+	margin: 10px;
 }

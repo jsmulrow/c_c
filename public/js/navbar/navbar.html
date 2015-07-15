@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="" ui-sref="landingPage" ng-click="activeLink = ''">
+					<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+					<span>College Cleaners</span>
+				</a>
+			</div>
+			<div>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span> 
+			    </button>
+		    </div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+  				<ul class="nav navbar-nav navbar-right">
+  					<li ng-class="{active: activeLink === 'cleaners'}">
+  						<a ui-sref="cleaners.initialRequest" href="#" ng-click="activeLink = 'cleaners'">Cleaners</a>
+  					</li>
+   					<li ng-class="{active: activeLink === 'clients'}">
+   						<a ui-sref="clients" ng-click="activeLink = 'clients'" href="#">Clients</a>
+   					</li>
+   					<li ng-class="{active: activeLink === 'profile'}">
+   						<a href="#" ui-sref="profile({userId: signData.user._id})" class="navbar-link" ng-click="activeLink = 'profile'">{{signData.user.username}}</a>
+   					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,26 @@
+<div class="row">
+	<!-- left sidebar -->
+	<div
+	class="sidebar col-sm-4 col-xs-12"
+	ng-controller="SidebarCtrl">
+		<div class="list-group" ng-repeat="request in requests">
+			<a href="" ui-sref="cleaners.request({requestId: request._id})">
+				<request request="request" ng-click="setSelected(request)"></request>
+			</a>
+		</div>
+	</div>
+	<!-- main stuff -->
+	<div class="main-content col-sm-8 col-xs-12">
+
+	<!-- placeholder content -->
+	<!-- 	<div ng-hide="selected.request" class="place-holder">
+			<h2>Select a request from the sidebar</h2>
+			<p>
+				Vestibulum imperdiet leo ut congue auctor. Donec imperdiet mi sit amet nibh suscipit tincidunt. Morbi eleifend posuere euismod. Fusce tempus diam purus, a ultrices purus consequat nec. Vestibulum mollis quis quam in faucibus. Nam vel mi neque. Vivamus eleifend erat sed urna blandit tincidunt. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc eget fringilla ante. Donec eget gravida massa. Aenean a purus sit amet felis iaculis luctus. Duis ut lectus a ligula cursus pharetra vehicula sit amet mauris. Pellentesque egestas, quam vel varius facilisis, quam augue varius tellus, eu maximus quam lorem tristique lorem. Nam eget orci nibh. Etiam a augue neque. Aliquam et sem magna.
+			</p>
+		</div> -->
+		<!-- specific request -->
+		<div ui-view></div>
+
+	</div>
+</div>

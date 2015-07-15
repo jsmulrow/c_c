@@ -4,32 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// just for now
-var ejs = require('ejs');
-
-// session support
-// var session = require('express-session');
-
-// // authentication
-// var passport = require('passport');
-// var LocalStrategy = require('passport-local').Strategy;
-// passport.use(new LocalStrategy(
-//   function(username, password, done) {
-//     User.findOne({username: username}, function(err, user) {
-//       if (err) {return done(err);}
-//       if (!user) {
-//         return done(null, false, {message: 'Incorrect username.'});      
-//       }
-//       if (!user.validPassword(password)) {
-//         return done(null, false, {message: 'Incorrect password.'});
-//       }
-//       return done(null, user);
-//     });
-//   }
-// ));
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var api = require('./routes/api');
 
 var app = express();
@@ -41,7 +17,9 @@ app.set('view engine', 'ejs');
 
 // // set up express
 app.use(favicon(__dirname + '/public/favicon.ico'));
-// debuggin
+// The path of our index.html file. ([ROOT]/index.html)
+var indexHtmlPath = path.join(__dirname, '/index.html');
+// debugging
 app.use(logger('dev'));
 // parsing
 app.use(bodyParser.json());
@@ -50,18 +28,15 @@ app.use(cookieParser());
 // static files
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
-// authentication - passport.js
-// app.use(session({ secret: 'keyboard cat'}));
-// app.use(passport.initialize());
-// app.use(passport.session());
-
 
 // authentication - passport.js
 require('./passport.js')(app);
 
-// route handlers
-app.use('/', routes);
-app.use('/users', users);
+// // route handlers
+/* GET home page. */
+app.get('/', function(req, res, next) {
+    res.sendFile(indexHtmlPath);
+});
 app.use('/api', api);
 
 // catch 404 and forward to error handler

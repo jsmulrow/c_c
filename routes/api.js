@@ -13,9 +13,7 @@ router.get('/users', function(req, res, next) {
 		res.json(users);
 	})
 	// error handler
-	.then(null, function(e) {
-		next(e);
-	});
+	.then(null, next);
 });
 
 // return one user - only searches by email
@@ -37,9 +35,16 @@ router.get('/user', function(req, res, next) {
 				res.json(null);
 			}
 		})
-		.then(null, function(e) {
-			next(e);
-		});
+		.then(null, next);
+});
+
+router.get('/users/:id', function(req, res, next) {
+	// return user with the given id
+	models.User.findById(req.params.id).exec()
+		.then(function(user) {
+			res.json(user);
+		})
+		.then(null, next);
 });
 
 // return all requests

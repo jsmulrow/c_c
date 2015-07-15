@@ -1,0 +1,21 @@
+<div>
+	<div class="col-sm-8 col-xs-12">
+		<h2>Please sign in first:</h2>
+		<form role="form" name="sign" ng-submit="signIn(user)">
+			<div class="form-group col-sm-6">
+				<label>What is your username?</label>
+				<input class="form-control" ng-model="user.username" type="text" placeholder="Your name" required>
+			</div>
+			<div class="form-group col-sm-6">
+				<label>What is your password?</label>
+				<input class="form-control" ng-model="user.password" type="password" placeholder="Your password" required>
+			</div>
+			<button class="btn btn-primary" type="submit">Submit</button>
+			<a class="btn btn-warning" ui-sref="login.register">Register new user</a>
+
+		</form>
+		<h2 ng-show="badUser">Could not find that username</h2>
+		<h2 ng-show="badPswd">Incorrect password</h2>
+	</div>
+
+</div>

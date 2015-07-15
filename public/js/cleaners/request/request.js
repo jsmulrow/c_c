@@ -3,8 +3,10 @@ app.directive('request', function() {
 		restrict: 'E',
 		templateUrl: 'js/cleaners/request/request.html',
 		// scope variables
-		request: '=',
-		click: '&',
+		scope: {
+			request: '=',
+			user: '='
+		},
 		link: function(scope, element, attrs) {
 
 		}

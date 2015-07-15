@@ -27,7 +27,19 @@ var userSchema = new Schema({
 	email: String,
 	college: String,
 	username: String,
-	password: String
+	password: String,
+	activeRequests: [{type: Schema.Types.ObjectId, ref: 'Request'}],
+	activeAppointments: String
+	// messages: [{type: Schema.Types.ObjectId, ref: 'Message'}]
+});
+
+// messages for communicating b/w users
+var messageSchema = new Schema({
+	title: String,
+	content: String,
+	author: {type: Schema.Types.ObjectId, ref: 'User'},
+	recipient: {type: Schema.Types.ObjectId, ref: 'User'},
+	createdAt: {type: Date, expires: '7d'}
 });
 
 // for password auth
@@ -37,5 +49,6 @@ userSchema.methods.validPassword = function(password) {
 
 module.exports = {
 	User: mongoose.model('User', userSchema),
-	Request: mongoose.model('Request', requestSchema)
+	Request: mongoose.model('Request', requestSchema),
+	Message: mongoose.model('Message', messageSchema)
 };

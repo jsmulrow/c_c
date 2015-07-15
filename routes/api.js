@@ -4,7 +4,7 @@ var router = express.Router();
 // load mongoose models
 var models = require('../models/models');
 
-// create routes for API
+// // create routes for API
 
 // return all users
 router.get('/users', function(req, res, next) {
@@ -72,5 +72,28 @@ router.post('/requests', function(req, res, next) {
 			next(e);
 		});
 });
+
+// return all messages for a user
+router.get('/users/:userId/messages', function(req, res, next) {
+	console.log('looking for messages for: ', req.params.userId);
+
+	models.Message.find({recipient: req.params.userId})
+	.then(function(messages) {
+		res.json(messages);
+	})
+	.then(null, next);
+});
+
+router.post('/users/:userId/messages', function(req, res, next) {
+	console.log('posting message for: ', req.params.userId);
+
+	var message = new models.Message(req.body);
+	message.save()
+		.then(function(data) {
+			res.json(data);
+		})
+		.then(null, next);
+});
+
 
 module.exports = router;

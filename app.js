@@ -5,15 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
 var api = require('./routes/api');
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-// try to get rid of this -- using angular instead
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
 // // set up express
 app.use(favicon(__dirname + '/public/favicon.ico'));

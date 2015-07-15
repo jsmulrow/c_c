@@ -1,11 +1,13 @@
-var app = angular.module('CC', ['ui.router']);
+var app = angular.module('CC', [
+	'ui.router'
+	]);
 
 // set up config
 app.config(function($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('landingPage', {
 			url: '/',
-			templateUrl: 'views/landing.view.html',
+			templateUrl: 'js/landing/landing.view.html',
 			controller: 'LandingCtrl'
 		})
 		.state('login', {
@@ -22,7 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		})
 		.state('profile', {
 			url: '/profile/:userId',
-			templateUrl: 'views/profile.view.html',
+			templateUrl: 'js/profiles/profile.view.html',
 			controller: 'ProfileCtrl'
 		})
 		.state('cleaners', {

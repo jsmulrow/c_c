@@ -28,8 +28,8 @@ var userSchema = new Schema({
 	college: String,
 	username: String,
 	password: String,
-	activeRequests: [{type: Schema.Types.ObjectId, ref: 'Request'}],
-	activeAppointments: String
+	requests: [{type: Schema.Types.ObjectId, ref: 'Request'}],
+	appointments: [{type: Schema.Types.ObjectId, ref: 'Request'}]
 	// messages: [{type: Schema.Types.ObjectId, ref: 'Message'}]
 });
 

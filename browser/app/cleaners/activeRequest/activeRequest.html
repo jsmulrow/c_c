@@ -1,0 +1,38 @@
+<div>
+	<!-- <h2>Selected Request</h2> -->
+	<h3>Title: <strong>{{request.title}}</strong></h3>
+	<hr/>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">Author:</div>
+			  <div class="panel-body">
+			    <p>Name: {{request.author.name}}</p>
+			    <p>Email: {{request.author.email}}</p>
+			    <p>Username: {{request.author.username}}</p>
+			    <p>College: {{request.author.college}}</p>
+			  </div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="panel panel-default">
+			  <div class="panel-heading">Request Info:</div>
+			  <div class="panel-body">
+			    <p>Dirtiness: {{request.dirtiness}}</p>
+			    <p>Payment: {{request.payment}}</p>
+			<!-- make custom directive, and use a filter to go through the array -->
+			    <p>Available Times: {{request.times}}</p>
+			    <p>Where: {{request.college}}, {{request.suite}}</p>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<button ng-click="acceptRequest(request._id, user._id)" class="btn btn-primary">Accept this request</button>
+		</div>
+		<div class="col-sm-6">
+			<button ng-click="doSomethingElse()" class="btn btn-success">Do something else</button>
+		</div>
+	</div>
+</div>

@@ -28,6 +28,16 @@ a {
 	}
 }
 
+.login-form {
+	width: 50%;
+	margin-right: 25%;
+	margin-left: 25%;
+}
+
+.refresh-btn {
+	padding-bottom: 10px;
+}
+
 
 .navbar .navbar-header {
 	float: left;

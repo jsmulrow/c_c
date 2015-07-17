@@ -1,0 +1,13 @@
+<div class="row refresh-btn">
+	<button ng-click="getActivities(activityName, user._id)" class="btn btn-warning">Refresh {{activityName}}</button>
+</div>
+<div class="list-group">
+
+	<a ng-repeat="activity in activities" class="list-group-item" href="" ng-click="setSelectedActivity(message)">
+		<span class="badge">2</span>
+		<h4 class="list-group-item-heading">{{activity.title}}</h4>
+		<p class="list-group-item-text">{{activity.content}}</p>
+		<!-- <pre>{{message | json}}</pre> -->
+	</a>
+
+</div>

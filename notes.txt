@@ -22,3 +22,12 @@ cleaners
 
 
 sign in?
+
+
+use ui-sref-active A-directive for the navbar buttons
+	some other useful stuff here: https://github.com/angular-ui/ui-router/wiki/Quick-Reference#ui-sref-active
+
+put sessions in
+	look at auther workshop
+		attach userId to session, then use middleware to get user and attach it to the requests (maybe order middleware so user is only loaded for requests that would need the current User -- unless the time saved is negligible)
+	uses express session

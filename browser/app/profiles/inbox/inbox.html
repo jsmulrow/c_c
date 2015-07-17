@@ -1,0 +1,13 @@
+<div class="row refresh-btn">
+	<button ng-click="getMessages(user._id)" class="btn btn-warning">Refresh Inbox</button>
+</div>
+<div class="list-group">
+
+	<a ng-repeat="message in messages" class="list-group-item" href="" ng-click="setSelectedMessage(message)" ui-sref="profile.message({messageId: message._id})">
+		<span class="badge">2</span>
+		<h4 class="list-group-item-heading">{{message.title}}</h4>
+		<p class="list-group-item-text">{{message.content}}</p>
+		<!-- <pre>{{message | json}}</pre> -->
+	</a>
+
+</div>

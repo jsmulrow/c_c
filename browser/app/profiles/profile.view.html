@@ -1,0 +1,46 @@
+<div class="row">
+	<!-- title -->
+	<div class="col-xs-12 profile-title">
+		<h1>User Profile Page for: {{signData.user.name}}</h1>
+		<hr/>
+	</div>
+
+	<!-- links to requests and appointments -->
+	<div class="main-content col-sm-8 col-xs-12">
+		<div class="place-holder">
+			<h2>Cleaning Activities</h2>
+			<hr/>
+			<div class="row">
+				<!-- submitted requests for cleanings -->
+				<div class="col-sm-6 col-xs-12">
+					<h4>Active requests</h4>
+					<hr/>
+					<cleaning-activities user="signData.user" name="'requests'"></cleaning-activities>
+				</div>
+				<!-- signed up for cleanings -->
+				<div class="col-sm-6 col-xs-12">
+					<h4>Active appointments</h4>
+					<hr/>
+					<cleaning-activities user="signData.user" name="'appointments'"></cleaning-activities>
+				</div>	
+			</div>
+		</div>
+	</div>
+
+	<!-- put a modal in -->
+
+	<!-- <ui-view></ui-view> -->
+
+	<!-- message inbox -->
+	<div class="inbox col-sm-4 col-xs-12">
+		<h2>Inbox</h2>
+		<hr/>
+
+		<!-- inbox directive -->
+		<inbox user="signData.user"></inbox>
+
+
+
+	</div>
+
+</div>

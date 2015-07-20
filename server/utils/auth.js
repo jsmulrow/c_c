@@ -1,4 +1,4 @@
-var User = require('./users/user.model');
+var User = require('../api/users/user.model');
 
 function isAuthenticated(req, res, next) {
 	// check for user id

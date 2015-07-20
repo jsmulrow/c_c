@@ -1,5 +1,6 @@
 var app = angular.module('CC', [
-	'ui.router'
+	'ui.router',
+	'ui.bootstrap'
 	]);
 
 // set up config

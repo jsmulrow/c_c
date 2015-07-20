@@ -5,10 +5,11 @@ var router = require('express').Router(),
 
 var HttpError = require('../../utils/HttpError');
 
-var auth = require('../auth.js');
+var auth = require('../../utils/auth.js');
 
 var User = require('./user.model');
-var Request = require('../requests/request.model')
+var Request = require('../requests/request.model');
+var Message = require('../messages/message.model');
 
 // return all users
 router.get('/', function(req, res, next) {
@@ -102,7 +103,7 @@ router.post('/:userId/requests', function(req, res, next) {
 router.get('/:userId/appointments', function(req, res, next) {
 	console.log('getting appointments for: ', req.params.userId);
 	
-	User.findOne({_id: req.params.userId}).populate('appointments')
+	User.findById(req.params.userId).populate('appointments').exec()
 		.then(function(user){
 			console.log(user);
 			res.json(user.appointments);

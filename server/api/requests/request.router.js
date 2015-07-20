@@ -5,7 +5,7 @@ var router = require('express').Router(),
 
 var HttpError = require('../../utils/HttpError');
 
-var auth = require('../auth.js');
+var auth = require('../../utils/auth.js');
 
 var Request = require('./request.model');
 

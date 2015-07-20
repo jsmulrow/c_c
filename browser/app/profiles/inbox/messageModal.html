@@ -1,0 +1,44 @@
+<!-- shows selected message -->
+<!-- <div>
+	<div class="place-holder">
+		<h2>Current Message</h2>
+		<hr/>
+			<div class="row">
+				<div class="col-sm-6 col-xs-12">
+					<h4>Title</h4>
+					<p>{{message.title}}</p>
+					<hr/>
+				</div>
+				<div class="col-sm-6 col-xs-12">
+					<h4>Content</h4>
+					<p>{{message.content}}</p>
+					<hr/>
+				</div>	
+			</div>
+	</div>
+</div> -->
+<div>
+	<div class="modal-header">
+	    <h3 class="modal-title">Current Message</h3>
+	</div>
+	<div class="modal-body">
+	    Selected: <b>{{ message }}</b>
+		<div class="row">
+			<div class="col-sm-12 col-xs-12">
+				<h4>Title</h4>
+				<p>{{message.title}}</p>
+				<hr/>
+			</div>
+			<div class="col-sm-12 col-xs-12">
+				<h4>Content</h4>
+				<p>{{message.content}}</p>
+				<hr/>
+			</div>	
+		</div>
+	</div>
+	<div class="modal-footer">
+	    <button class="btn btn-primary" ng-click="ok()">OK</button>
+	    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</div>
+	
+</div>

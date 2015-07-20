@@ -1,4 +1,4 @@
-app.directive('inbox', function(MessageFactory, SelectedMessageFactory) {
+app.directive('inbox', function(MessageFactory, SelectedMessageFactory, $modal) {
 	return {
 		restrict: 'E',
 		templateUrl: 'app/profiles/inbox/inbox.html',
@@ -26,6 +26,27 @@ app.directive('inbox', function(MessageFactory, SelectedMessageFactory) {
 			function setSelectedMessage(message) {
 				SelectedMessageFactory.message = message;
 			}
+
+			scope.open = function(size) {
+				
+				var modalInstance = $modal.open({
+					animation: scope.animationsEnabled,
+				    templateUrl: 'app/profiles/inbox/messageModal.html',
+				    controller: 'MessageModalCtrl',
+				    size: size,
+				    resolve: {
+				      message: function () {
+				        // return SelectedMessageFactory.message;
+				        return {title: 'jack', content: 'is pretty sweet'};
+				      }
+			        }	
+				});	
+				
+				modalInstance.result.then(function(selectedItem) {
+					scope.selected = selectedItem;
+				});
+
+			};
 
 			// run get messages on load
 			getMessages(scope.user._id);

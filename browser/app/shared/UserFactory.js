@@ -7,7 +7,7 @@ app.factory('UserFactory', function($http){
 				});
 		},
 		getUser: function(config) {
-			return $http.get('/api/user', {params: config})
+			return $http.get('/api/users/user', {params: config})
 				.then(function(res) {
 					return res.data;
 				});

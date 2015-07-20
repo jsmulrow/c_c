@@ -4,7 +4,11 @@ var mongoose = require('mongoose');
 var Promise = require('bluebird'); 
 Promise.promisifyAll(mongoose);
 
-var databaseURI = 'mongodb://localhost:27017/college_cleaners';
+// load models
+// require('./api');
+
+// var databaseURI = 'mongodb://localhost:27017/college_cleaners';
+var databaseURI = 'mongodb://jsmulrow:college@ds031862.mongolab.com:31862/college-cleaners';
 
 var db = mongoose.connect(databaseURI).connection;
 

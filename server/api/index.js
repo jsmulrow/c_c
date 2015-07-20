@@ -153,6 +153,12 @@
 
 var router = require('express').Router();
 
+// load api models - can then be referenced easily in seed file
+// require('./messages/message.model');
+// require('./requests/request.model');
+// require('./users/user.model');
+
+
 router.use('/users', require('./users/user.router'));
 
 router.use('/requests', require('./requests/request.router'));

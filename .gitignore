@@ -1,2 +1,7 @@
 node_modules
 bower_components
+keys/
+extra-seed.js
+seed.js
+seed2.js
+notes.txt
